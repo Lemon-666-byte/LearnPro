@@ -40,7 +40,9 @@ public boolean dispatchTouchEvent(MotionEvent event) {
 关于 OnTouchListener 、onTouchEvent、OnClickListener 的优先级：
 
 当一个View设置了OnTouchListener，那么它的 onTouch 方法就会回调
+
 （1）当 onTouch 方法返回 true：onTouchEvent 方法不会被调用
+
 （2）当 onTouch 方法返回 false：onTouchEvent 方法被调用
 
 所以 OnTouchListener 优先级比 onTouchEvent 要高。
