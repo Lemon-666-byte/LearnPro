@@ -130,6 +130,7 @@ loop() 方法的实现步骤：
 对于Handler，需要关心的方法有 sendMessage，和 handleMessage 方法，Handler还可以通过 post 一个 Runnable，里面其实也是调用了 sendMessage 方法。
 
 sendMessage：
+
 所有的发送消息方法最终都会调用 sendMessageAtTime 方法。
 ```
 public boolean sendMessageAtTime(Message msg, long uptimeMillis) {
@@ -176,3 +177,14 @@ public void dispatchMessage(Message msg) {
 ```
 
 可以看到，分发消息方法里面，最终会回调 handleCallback(msg); 或者 handleMessage(msg); 方法。
+
+#### MessageQueue
+
+消息队列内部存储了一组消息，以队列的形式对外提供插入和删除的工作。采用的是单链表的数据结构来存储消息。
+主要包含两个操作：插入和读取。读取本身会伴随着删除操作。对应的方法是 enqueueMessage 和 next
+
+#### 总结
+
+Handler通过Looper来构建内部的消息循环系统，当send方法被调用时，它会调用MessageQueue的enqueueMessage方法将这个消息放入消息队列中，然后Looper发现新消息来后，处理消息。最终消息中的Runnable或者Handler中的handleMessage方法会被调用。
+
+因为Looper是运行在创建Handler的线程中的，这样Handler的业务逻辑就被切换到创建Handler所在的线程去执行了。
