@@ -1,3 +1,5 @@
+（如有错误或补充，望指出）
+
 #### 哈希表
 散列表（Hash table，也叫哈希表），是根据关键码值(Key value)而直接进行访问的数据结构。
 
@@ -24,3 +26,7 @@ HashMap 的数据结构是有数组和链表组成的。
 108 % 16=12,  
 140 % 16=12。  
 所以 12、28、108 以及 140 都存储在数组下标为 12 的位置。
+
+HashMap 里面实现一个静态内部类 HashMapEntry （继承 Map.Entry），其重要的属性有 key，value，next，hash，从属性key，value我们就能很明显的看出来HashMapEntry 就是 HashMap 键值对实现的一个基础 bean，HashMap的基础就是一个线性数组，这个数组就是HashMapEntry []，Map 里面的内容都保存在Entry[]里面。
+
+（欢迎补充...）
