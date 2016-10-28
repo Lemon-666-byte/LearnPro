@@ -9,3 +9,4 @@
 - [Android启动模式](about%20notes/Android启动模式.md)
 - [图片缓存，三级缓存](about%20notes/图片缓存，三级缓存.md)
 - [AsyncTask机制](about%20notes/AsyncTask机制.md)
+- [跨进程间通信](about%20notes/跨进程间通信.md)
