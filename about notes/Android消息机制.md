@@ -1,3 +1,5 @@
+(如有错误或补充，望指出)
+
 Handler 的作用是将一个任务切换到Handler所在的线程去执行。
 
 #### ThreadLocal：
