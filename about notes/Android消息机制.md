@@ -124,3 +124,55 @@ loop() 方法的实现步骤：
    （2）当找到消息后，调用 msg.target.dispatchMessage(msg); 来分发消息。
    
    （3）最后通过 msg.recycleUnchecked(); 来将消息标记为正在使用。而 msg.target 追踪一下会发现其实就是 Handler 。
+   
+#### Handler
+
+对于Handler，需要关心的方法有 sendMessage，和 handleMessage 方法，Handler还可以通过 post 一个 Runnable，里面其实也是调用了 sendMessage 方法。
+
+sendMessage：
+所有的发送消息方法最终都会调用 sendMessageAtTime 方法。
+```
+public boolean sendMessageAtTime(Message msg, long uptimeMillis) {
+   MessageQueue queue = mQueue;
+   if (queue == null) {
+       RuntimeException e = new RuntimeException(
+               this + " sendMessageAtTime() called with no mQueue");
+       Log.w("Looper", e.getMessage(), e);
+       return false;
+   }
+   return enqueueMessage(queue, msg, uptimeMillis);
+}
+```
+在 sendMessageAtTime 方法中，可以看到，它最终的操作就是往消息队列里面插入一条消息。（也就是说，发消息的操作其实就是往消息队列里面插入一条消息）
+
+然后值得看下的是 enqueueMessage 方法：
+```
+private boolean enqueueMessage(MessageQueue queue, Message msg, long uptimeMillis) {
+    msg.target = this;
+    if (mAsynchronous) {
+        msg.setAsynchronous(true);
+    }
+    return queue.enqueueMessage(msg, uptimeMillis);
+}
+```
+
+msg.target = this; 也就是说，上面说的 Looper 里面，分发消息的  msg.target.dispatchMessage(msg); 中的 msg.target 就是从这里赋值的。
+
+所以，现在看回 dispatchMessage 方法：
+ 
+```
+public void dispatchMessage(Message msg) {
+    if (msg.callback != null) {
+        handleCallback(msg);
+    } else {
+        if (mCallback != null) {
+            if (mCallback.handleMessage(msg)) {
+                return;
+            }
+        }
+        handleMessage(msg);
+    }
+}
+```
+
+可以看到，分发消息方法里面，最终会回调 handleCallback(msg); 或者 handleMessage(msg); 方法。
