@@ -15,6 +15,7 @@ dispatchTouchEvent 方法的返回结果受当前 View 的 onTouchEvent 方法�
 onInterceptTouchEvent 方法表示是否拦截当前事件。
 
 1、如果当前 View 拦截了事件（返回true），那么在同一个事件序列中，此方法不会再调用，接着会调用onTouchEvent 方法处理事件。
+
 2、如果不拦截，则当前事件会继续传给它的子元素，接着子元素的 dispatchTouchEvent 方法会调用，如此反复知道事件被最终处理。
 
 
