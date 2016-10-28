@@ -9,5 +9,5 @@ HashMap 的数据结构是有数组和链表组成的。
 
 哈希表是由数组+链表组成的，一个长度为16的数组中，每个元素存储的是一个链表的头结点。
 
-![](art/image_hashmap.png)
+![](/master/art/image_hashmap.png)
 
