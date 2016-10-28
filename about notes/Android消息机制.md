@@ -120,5 +120,7 @@ loop() 方法的实现步骤：
 2、然后开启一个for的无限循环，在循环里面：
 
    （1）通过 queue.next(); 不断指向消息队列下一个节点（也就是不断遍历消息队列）。
+   
    （2）当找到消息后，调用 msg.target.dispatchMessage(msg); 来分发消息。
+   
    （3）最后通过 msg.recycleUnchecked(); 来将消息标记为正在使用。而 msg.target 追踪一下会发现其实就是 Handler 。
