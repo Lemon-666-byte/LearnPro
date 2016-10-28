@@ -1,3 +1,5 @@
+（如有错误或补充，望指出）
+
 事件分发过程主要由三个方法完成：
 ```
 public boolean dispatchTouchEvent(MotionEvent event)
