@@ -117,7 +117,7 @@ public static void loop() {
 ```
 loop() 方法的实现步骤：
 
-1、首先通过 final Looper me = myLooper(); 和 final MessageQueue queue = me.mQueue; 获取当前现场绑定的 Looper 和与 Looper 绑定的消息队列。
+1、首先通过 final Looper me = myLooper(); 和 final MessageQueue queue = me.mQueue; 获取当前线程绑定的 Looper 和与 Looper 绑定的消息队列。
 
 2、然后开启一个for的无限循环，在循环里面：
 
