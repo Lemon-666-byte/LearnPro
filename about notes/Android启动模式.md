@@ -20,6 +20,6 @@ singleTask 是栈内复用模式，这是一种单例模式，只要 Activity �
 栈 S1 的情况是 ADBC，且 D 所需的栈是 S1，这时根据复用原则，D 不会被实例化，而是会把 D 调到栈顶，调用 onNewIntent() 方法，并把 BC 清除掉，这是的栈内情况变成 AD。  
 
 #### singleInstance：
-singleInstance 可以理解成是一种加强的 singleTop 模式。它有 singleTop 模式的所以特征。
+singleInstance 可以理解成是一种加强的 singleTask 模式。它有 singleTask 模式的所以特征。
 
 那么加强的一点是，当 A 启动后，系统会为它创建一个任务栈，并把A 单独在这个栈中，后续的请求均不会创建新的 A，除非系统把这个栈给销毁了。
