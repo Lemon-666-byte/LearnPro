@@ -60,7 +60,7 @@ public boolean dispatchTouchEvent(MotionEvent event) {
 
 （2）如果 View 不消耗除 ACTION_DOWN 以外的其他事件，那么这个点击事件就会消失，此时父元素的 onTouchEvent 并不会被调用，并且当前 View 可以持续接收到后续的事件，最终这些消失的点击事件会传递给 Activity 处理。
 
-（3）ViewGroup 默认不拦截任何时间，因为源码中 ViewGroup 的 onInterceptTouchEvent 默认返回 fasle。
+（3）ViewGroup 默认不拦截任何事件，因为源码中 ViewGroup 的 onInterceptTouchEvent 默认返回 fasle。
 
 （4）View 没有 onInterceptTouchEvent 方法，一旦有点击事件传递给它，那么它的 onTouchEvent 方法就会被调用。
 
