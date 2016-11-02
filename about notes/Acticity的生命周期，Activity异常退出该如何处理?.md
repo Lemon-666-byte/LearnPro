@@ -5,7 +5,7 @@
  (4) Activity退居后台，且内存不足：onPause onStop onDestory  
  (5) 再次回到：onCreate onStart onResume  
  (6) 锁屏：onPause onStop  
- (7) 解锁：onStart onResume  
+ (7) 解锁：onRestart onStart onResume  
  (8) Home键：onPause onStop  
 
  Fragment生命周期：
