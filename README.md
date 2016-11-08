@@ -11,3 +11,7 @@
 - [AsyncTask机制](about%20notes/AsyncTask机制.md)
 - [跨进程间通信](about%20notes/跨进程间通信.md)
 - [ANR和OOM](about%20notes/ANR和OOM.md)
+
+笔记：
+
+- [实现Fragment懒加载](about%20notes/Fragment懒加载.md)
