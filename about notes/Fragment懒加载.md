@@ -3,13 +3,15 @@
 
 Fragment 实现懒加载，主要涉及的方法是 setUserVisibleHint()。
 
-基于懒加载实现一个 BaseFragment（由于项目中用到RxJava，所以继承了 RxFragment ）：
+下面实现基于懒加载实现一个 BaseFragment（由于项目中用到RxJava，所以继承了 RxFragment ）：
 
 首先实现一个懒加载的 LazyFragment 基类：
 
 ```
 public abstract class LazyFragment extends RxFragment {
+
     protected boolean isVisible;
+    
     /**
      * 在这里实现Fragment数据的懒加载.
      *
@@ -26,18 +28,23 @@ public abstract class LazyFragment extends RxFragment {
             onInvisible();
         }
     }
+    
     /**
      * fragment被设置为可见时调用
      */
     protected void onVisible() {
         lazyLoad();
     }
+    
     protected abstract void lazyLoad();
+    
     /**
      * fragment被设置为不可见时调用
      */
     protected void onInvisible() {
+    
     }
+    
 }
 ```
 
