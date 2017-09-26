@@ -11,6 +11,7 @@
 - [AsyncTask机制](about%20notes/AsyncTask机制.md)
 - [跨进程间通信](about%20notes/跨进程间通信.md)
 - [ANR和OOM](about%20notes/ANR和OOM.md)
+- [android性能优化](about%20notes/android性能优化.md)
 
 笔记：
 
